@@ -1,0 +1,28 @@
+
+.form{
+  display: flex;
+  font-size: 21px;
+}
+
+input{
+  height: 24px;
+}
+
+.form-buttons{
+  display: flex;
+}
+
+.list, .save, .cancel-form{
+  font-size: 21px;
+}
+
+
+.content{
+  display: flex;
+  list-style: square;
+}
+
+svg{
+  margin-left: 10px;
+  cursor: pointer;
+}
