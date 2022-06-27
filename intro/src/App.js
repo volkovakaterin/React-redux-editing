@@ -2,10 +2,17 @@ import './App.css';
 import MainApp from './MainApp';
 import { useSelector, useDispatch } from 'react-redux';
 import { addItemForm, deleteItem } from './redux/actionCreators';
+import { useState, useEffect } from 'react';
 
 
 function App() {
-  const estimate = useSelector((state)=> state.estimateReducer.list);
+  const estimate = useSelector((state)=> state.estimateReducer.filterList);
+  const stateGeneral = useSelector((state)=> state.estimateReducer);
+  const [visibilityList, setVisibility] = useState('');
+ console.log(stateGeneral.visibilityList);
+  useEffect(() => {
+    setVisibility(stateGeneral.visibilityList)
+}, [stateGeneral.visibilityList])
 
   const dispatch = useDispatch();
 
@@ -44,7 +51,7 @@ function App() {
   return (
     <>
     <MainApp/>
-    <ul className='list'>
+    <ul className='list' style={{visibility: `${visibilityList}`}}>
     {list}
     </ul>
     </>
