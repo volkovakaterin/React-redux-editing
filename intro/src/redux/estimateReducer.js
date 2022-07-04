@@ -6,10 +6,13 @@ import { nanoid } from 'nanoid';
     {id: 'gd9l9', name: "Замена дисплея", value: '25000'}, 
     {id: 'kji6', name: "Замена аккумулятора", value: '4000'}, 
     {id: 'cgy7', name: "Замена микрофона", value: '2500'}],
-    filterList: [],
+    filterList: [{id: 'jij9', name: "Замена стекла", value: '21000'}, 
+    {id: 'gd9l9', name: "Замена дисплея", value: '25000'}, 
+    {id: 'kji6', name: "Замена аккумулятора", value: '4000'}, 
+    {id: 'cgy7', name: "Замена микрофона", value: '2500'}],
     form: {name: '', value: '', id: ''},
     visibility: 'hidden',
-    visibilityList: 'hidden'
+    visibilityList: 'visible'
  }
  
  const estimateReducer = (state = intialState, action) => {
@@ -24,7 +27,7 @@ import { nanoid } from 'nanoid';
                    }) 
                   return {
                     list: arr,
-                    filterList: state.filterList,
+                    filterList: arr,
                     form: {name: '', value: ''},
                     visibility: 'hidden',
                     visibilityList: 'visible'
@@ -32,7 +35,7 @@ import { nanoid } from 'nanoid';
             } else
             return {
                 list: [...state.list, {id: nanoid(), name, value: Number(value)}],
-                filterList: state.filterList,
+                filterList: [...state.list, {id: nanoid(), name, value: Number(value)}],
                 form: {name: '', value: ''},
                 visibility: 'hidden',
                 visibilityList: 'visible'
@@ -50,10 +53,10 @@ import { nanoid } from 'nanoid';
          const clearForm = action.payload;
          return {
                 list: [...state.list],
-                filterList: state.filterList,
+                filterList: [...state.list],
                 form: {name: clearForm, value: clearForm, id: clearForm},
                 visibility: 'hidden',
-                visibilityList: 'hidden'
+                visibilityList: 'visible'
 
          }  
         case DELETE_ITEM:
@@ -63,7 +66,7 @@ import { nanoid } from 'nanoid';
             if(state.form.id === deleteID) {
               return {
                     list: arr,
-                    filterList: arrFilter,
+                    filterList: arr,
                     form: {name: '', value: '', id: ''},
                     visibility: 'hidden',
                     visibilityList: 'visible'

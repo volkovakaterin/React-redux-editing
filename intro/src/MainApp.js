@@ -43,7 +43,9 @@ const MainApp = () => {
         <div className="form-buttons">
         <form className="form" onSubmit={submitHandler}>
             <div>
-                <input type = 'text' required value={inputName} onChange={(e) => changeInput(e.target.value)} onFocus={(e) => focusInput(e.target.value)}/>
+                <label className="label-filter">FILTER
+                    <input type = 'text' required value={inputName} onChange={(e) => changeInput(e.target.value)} onFocus={(e) => focusInput(e.target.value)}/>
+                </label>
             </div>
             <div>
                 <input type = 'number' required value={inputValue} onChange={(e) => setInputValue(e.target.value)} />

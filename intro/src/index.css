@@ -4,6 +4,11 @@
   font-size: 21px;
 }
 
+.label-filter{
+  font-size: 16px;
+  color: gray;
+}
+
 input{
   height: 24px;
 }
